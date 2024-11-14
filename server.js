@@ -9,7 +9,7 @@ function main() {
   );
   // 입력에 따라 해당 기능을 실행합니다.
   console.log(`당신의 선택은: ${choice}`)
-  sw
+  
 }
 
 // 사칙연산 계산기 함수
