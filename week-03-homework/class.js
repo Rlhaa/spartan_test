@@ -8,7 +8,7 @@ class Character {
   }
 
   attack() {
-    console.log(`${this.name}가 공격을 시도합니다!`);
+    console.log(`${this.name}이/가 공격을 시도합니다!`);
   }
 
   heal(amount) {
