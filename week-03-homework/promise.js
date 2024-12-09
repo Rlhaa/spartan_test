@@ -6,7 +6,7 @@ const findTreasure = new Promise((resolve, reject) => {
     } else {
       reject("보물을 찾는데 실패했습니다. 다시 시도하세요.");
     }
-  }, 3000); // 2초 후에 결과 공개
+  }, 3000); 
 });
 
 // 보물 상자 열기 실행
@@ -18,6 +18,8 @@ findTreasure // 호출
   .catch((error) => {
     console.log(error); // 실패시 catch 블록 실행
   });
+
+
 
 const treasure = async () => {
   try {
