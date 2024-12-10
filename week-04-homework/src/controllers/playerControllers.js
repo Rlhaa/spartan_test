@@ -46,7 +46,7 @@ export const addPlayer = (req, res) => {
 };
 
 // 플레이어 수정
-export const updatePlayers = (req, res) => {
+export const updatePlayer = (req, res) => {
   const { id } = req.params;
 
   const { name, speed, shouting, grade } = req.body;
@@ -57,15 +57,17 @@ export const updatePlayers = (req, res) => {
         .json({ message: "데이터 형식이 올바르지 않습니다." });
     }
 
-    const playerId = players.findIndex((player) => player.id === parseInt(id));
+    const selectedPlayer = players.findIndex(
+      (player) => player.id === parseInt(id)
+    );
     // findIndex는 만족 요소가 없으면 -1을 반환한다
     if (playerId === -1) {
       return res.status(409).json({ message: "존재하지 않는 선수 id입니다." });
     }
-    players[playerId].name = name;
-    players[playerId].speed = speed;
-    players[playerId].shouting = shouting;
-    players[playerId].grade = grade;
+    players[selectedPlayer].name = name;
+    players[selectedPlayer].speed = speed;
+    players[selectedPlayer].shouting = shouting;
+    players[selectedPlayer].grade = grade;
 
     return res
       .status(200)
@@ -78,7 +80,7 @@ export const updatePlayers = (req, res) => {
 };
 
 // 플레이어 삭제
-export const deletePlayers = (req, res) => {
+export const deletePlayer = (req, res) => {
   const { id } = req.params;
 
   try {
