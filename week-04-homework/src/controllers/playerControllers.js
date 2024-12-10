@@ -1,5 +1,5 @@
 // controllers.js
-let players = [
+const players = [
   { id: 0, name: "차범근", speed: 100, shouting: 100, grade: "s" },
   { id: 1, name: "메시", speed: 100, shouting: 100, grade: "s" },
   { id: 2, name: "호날두", speed: 100, shouting: 100, grade: "s" },
@@ -57,17 +57,17 @@ export const updatePlayer = (req, res) => {
         .json({ message: "데이터 형식이 올바르지 않습니다." });
     }
 
-    const selectedPlayer = players.findIndex(
+    const playerIndex = players.findIndex(
       (player) => player.id === parseInt(id)
     );
     // findIndex는 만족 요소가 없으면 -1을 반환한다
-    if (playerId === -1) {
+    if (playerIndex === -1) {
       return res.status(409).json({ message: "존재하지 않는 선수 id입니다." });
     }
-    players[selectedPlayer].name = name;
-    players[selectedPlayer].speed = speed;
-    players[selectedPlayer].shouting = shouting;
-    players[selectedPlayer].grade = grade;
+    players[playerIndex].name = name;
+    players[playerIndex].speed = speed;
+    players[playerIndex].shouting = shouting;
+    players[playerIndex].grade = grade;
 
     return res
       .status(200)
