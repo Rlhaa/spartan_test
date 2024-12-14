@@ -28,8 +28,6 @@ export const getPlayers = async (req, res) => {
 // 플레이어 추가
 export const addPlayer = async (req, res) => {
   const { name, speed, shooting, grade } = req.body;
-  const parsedSpeed = parseInt(speed, 10);
-  const parsedShooting = parseInt(shooting, 10);
   // name 중복 체크
   const isExistName = await prisma.player.findFirst({
     where: { name },
@@ -43,8 +41,8 @@ export const addPlayer = async (req, res) => {
     data: {
       // 뽑아온 nickname, account_id를 각 컬럼에 적용한다.
       name: name,
-      speed: parsedSpeed,
-      shooting: parsedShooting,
+      speed: +speed,
+      shooting: +shooting,
       grade: grade,
     },
   });
@@ -58,8 +56,6 @@ export const updatePlayer = async (req, res) => {
   const { playerId } = req.params;
 
   const { name, speed, shooting, grade } = req.body;
-  const parsedSpeed = parseInt(speed, 10);
-  const parsedShooting = parseInt(shooting, 10);
   try {
     if (!name || !speed || !shooting || !grade) {
       return res
@@ -82,8 +78,8 @@ export const updatePlayer = async (req, res) => {
     const player = await prisma.player.update({
       data: {
         name,
-        speed: parsedSpeed,
-        shooting: parsedShooting,
+        speed: +speed,
+        shooting: +shooting,
         grade,
       },
       where: { playerId: +playerId },
