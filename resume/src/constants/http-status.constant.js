@@ -1,3 +1,4 @@
+// 상태코드 변수로 미리 정리해 constant 폴더에 정리
 export const HTTP_STATUS = {
   OK: 200, // 호출에 성공했을 때
   CREATED: 201, // 생성에 성공했을 때

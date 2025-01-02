@@ -1,3 +1,4 @@
+// 각종 성공, 실패, 오류 메시지 정리하여 따로 정이한 constant 파일
 import { MIN_PASSWORD_LENGTH } from './auth.constant.js';
 import { MIN_RESUME_LENGTH } from './resume.constant.js';
 
