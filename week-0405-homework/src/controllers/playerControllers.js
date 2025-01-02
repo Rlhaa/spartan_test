@@ -8,7 +8,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 // 플레이어 목록 조회
-export const getPlayers = async (req, res) => {
+export const getPlayers = async (res) => {
   const Players = await prisma.player.findMany({
     select: {
       playerId: true,
