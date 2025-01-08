@@ -1,5 +1,5 @@
 // resume.service.js
-import resumeRepository from "../repositories/test.repository.js";
+import resumeRepository from "../repositories/resume.repository.js";
 
 class ResumesService {
   #repository;

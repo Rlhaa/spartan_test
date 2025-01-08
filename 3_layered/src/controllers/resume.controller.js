@@ -1,5 +1,5 @@
 // resume.controller.js
-import resumeService from "../services/resumes.service.js";
+import resumeService from "../services/resume.service.js";
 
 class ResumeController {
   #service;
